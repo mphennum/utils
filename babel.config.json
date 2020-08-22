@@ -1,0 +1,25 @@
+{
+	"presets": [
+		[
+			"@babel/preset-env",
+			{
+				"loose": true,
+				"modules": "commonjs",
+			},
+		],
+	],
+	"env": {
+		"production": {
+			"comments": false,
+			"minified": true,
+			"presets": [
+				[
+					"minify",
+					{
+						"builtIns": false,
+					},
+				],
+			],
+		},
+	},
+}
