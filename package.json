@@ -1,0 +1,37 @@
+{
+	"name": "@mphennum/utils",
+	"version": "0.0.0",
+	"description": "javascript utilities for strings, numbers, dates, etc",
+	"main": "dist/index.js",
+	"scripts": {
+		"test": "echo \"No test specified\"",
+		"build:dev": "babel src --out-dir dist --delete-dir-on-start",
+		"build:watch": "npm run build:dev -- --watch",
+		"build:prod": "npm run build:dev -- --env-name production"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mphennum/utils.git"
+	},
+	"keywords": [
+		"javascript",
+		"utility",
+		"string",
+		"number",
+		"date",
+		"random"
+	],
+	"author": "mphennum",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/mphennum/utils/issues"
+	},
+	"homepage": "https://github.com/mphennum/utils#readme",
+	"devDependencies": {
+		"@babel/cli": "^7.10.5",
+		"@babel/core": "^7.11.1",
+		"@babel/preset-env": "^7.11.0",
+		"@babel/runtime": "^7.11.2",
+		"babel-preset-minify": "^0.5.1"
+	}
+}
