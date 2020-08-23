@@ -1,5 +1,7 @@
 import shuffle from './shuffle';
 
-export default {
+let array = {
 	shuffle,
 };
+
+export default array;
