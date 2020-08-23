@@ -1,5 +1,9 @@
+import genId from './gen-id';
 import randId from './rand-id';
 
-export default {
+let string = {
+	genId,
 	randId,
 };
+
+export default string;
