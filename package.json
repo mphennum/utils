@@ -5,9 +5,9 @@
 	"main": "dist/index.js",
 	"scripts": {
 		"test": "echo \"No test specified\"",
-		"build:dev": "babel src --out-dir dist --delete-dir-on-start",
+		"build:dev": "rollup --config --environment BUILD:development",
 		"build:watch": "npm run build:dev -- --watch",
-		"build:prod": "npm run build:dev -- --env-name production"
+		"build:prod": "npm run build:dev -- --environment BUILD:production"
 	},
 	"repository": {
 		"type": "git",
@@ -28,10 +28,6 @@
 	},
 	"homepage": "https://github.com/mphennum/utils#readme",
 	"devDependencies": {
-		"@babel/cli": "^7.10.5",
-		"@babel/core": "^7.11.1",
-		"@babel/preset-env": "^7.11.0",
-		"@babel/runtime": "^7.11.2",
-		"babel-preset-minify": "^0.5.1"
+		"rollup": "^2.26.5"
 	}
 }
