@@ -14,3 +14,12 @@ numbers
 
 dates
 ---
+
+booleans
+---
+
+arrays
+---
+
+objects
+---
