@@ -1,6 +1,4 @@
-'use strict';
-
-let randId = (len) => {
+'use strict';let randId = (len) => {
 	let id = '';
 	do {
 		id += Math.floor(Math.random() * 0x7FFFFFFF).toString(36);
@@ -8,6 +6,4 @@ let randId = (len) => {
 	} while (len && id.length < len);
 
 	return id.substr(0, len);
-};
-
-module.exports = randId;
+};module.exports=randId;

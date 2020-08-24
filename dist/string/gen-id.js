@@ -1,6 +1,4 @@
-'use strict';
-
-const CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+'use strict';const CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 const CHARSLEN = CHARS.length;
 
 let charPos = { };
@@ -31,6 +29,4 @@ let genId = () => {
 	}
 
 	return lastId;
-};
-
-module.exports = genId;
+};module.exports=genId;

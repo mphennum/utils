@@ -1,6 +1,4 @@
-'use strict';
-
-let shuffle = (arr) => {
+'use strict';let shuffle = (arr) => {
     let cur = arr.length;
 
     while (cur) {
@@ -13,6 +11,4 @@ let shuffle = (arr) => {
     }
 
     return arr;
-};
-
-module.exports = shuffle;
+};module.exports=shuffle;
