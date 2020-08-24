@@ -7,7 +7,7 @@
 		"test": "echo \"No test specified\"",
 		"build:dev": "rollup --config --environment BUILD:development",
 		"build:watch": "npm run build:dev -- --watch",
-		"build:prod": "npm run build:dev -- --environment BUILD:production"
+		"build:prod": "rollup --config --environment BUILD:production"
 	},
 	"repository": {
 		"type": "git",
