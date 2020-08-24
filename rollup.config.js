@@ -10,6 +10,7 @@ export default {
 		format: 'cjs',
 		// format: 'iife',
 		preserveModules: true,
+		exports: 'auto',
 	},
 	plugins: [
 		nodeResolve(),
