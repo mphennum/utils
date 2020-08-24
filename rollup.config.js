@@ -11,6 +11,7 @@ export default {
 		// format: 'iife',
 		preserveModules: true,
 		exports: 'auto',
+		compact: PROD,
 	},
 	plugins: [
 		nodeResolve(),
