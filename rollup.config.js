@@ -1,3 +1,5 @@
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+
 const PROD = (process.env.BUILD === 'production');
 
 export default {
@@ -7,4 +9,7 @@ export default {
 		format: 'cjs',
 		// format: 'umd',
 	},
+	plugins: [
+		nodeResolve(),
+	],
 };
