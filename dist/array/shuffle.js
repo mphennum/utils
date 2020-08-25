@@ -1,14 +1,17 @@
-'use strict';let shuffle = (arr) => {
-    let cur = arr.length;
+'use strict';
 
-    while (cur) {
-        let rand = Math.floor(Math.random() * cur);
-        cur--;
+var shuffle = function shuffle(arr) {
+  var cur = arr.length;
 
-        let tmp = arr[cur];
-        arr[cur] = arr[rand];
-        arr[rand] = tmp;
-    }
+  while (cur) {
+    var rand = Math.floor(Math.random() * cur);
+    cur--;
+    var tmp = arr[cur];
+    arr[cur] = arr[rand];
+    arr[rand] = tmp;
+  }
 
-    return arr;
-};module.exports=shuffle;
+  return arr;
+};
+
+module.exports = shuffle;
