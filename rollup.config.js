@@ -1,6 +1,5 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-
-const PROD = (process.env.BUILD === 'production');
+import babel from '@rollup/plugin-babel';
 
 export default {
 	input: 'src/index.js',
@@ -11,9 +10,9 @@ export default {
 		// format: 'iife',
 		preserveModules: true,
 		exports: 'auto',
-		compact: PROD,
 	},
 	plugins: [
+		babel({ babelHelpers: 'bundled' }),
 		nodeResolve(),
 	],
 };
