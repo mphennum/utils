@@ -1,5 +1,6 @@
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import babel from '@rollup/plugin-babel';
+import { terser } from 'rollup-plugin-terser';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export default {
 	input: 'src/index.js',
@@ -17,6 +18,15 @@ export default {
 			format: 'iife',
 			name: 'mph.utils',
 		},
+		{
+			file: 'dist/mph.utils.min.js',
+			format: 'iife',
+			name: 'mph.utils.min',
+			compact: true,
+			plugins: [
+				terser(),
+			],
+		}
 	],
 	plugins: [
 		babel({ babelHelpers: 'bundled' }),
