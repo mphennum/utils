@@ -1,5 +1,4 @@
-this.mph = this.mph || {};
-this.mph.utils = (function (exports) {
+var utils = (function (exports) {
     'use strict';
 
     var shuffle = function shuffle(arr) {
