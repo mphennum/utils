@@ -3,8 +3,12 @@ let shuffle = require('../dist/array/shuffle');
 
 describe('array', function() {
 	describe('#shuffle', function() {
-		let original = [ 1, 2, 3, 4, 5 ];
-		let shuffled = shuffle(original);
+		let original = [ ];
+		for (let i = 0; i < 100; i++) {
+			original[i] = i;
+		}
+
+		let shuffled = shuffle(original.slice());
 
 		it('should return an array', function() {
 			assert.equal(shuffled instanceof Array, true);
@@ -24,6 +28,18 @@ describe('array', function() {
 			}
 
 			assert.ok(!missing);
+		});
+
+		it('should usually have a different order', function() {
+			let sameOrder = true;
+			for (let i = 0; i <  original.length; i++) {
+				if (shuffled[i] !== original[i]) {
+					sameOrder = false;
+					break;
+				}
+			}
+
+			assert.ok(!sameOrder);
 		});
 	});
 });
