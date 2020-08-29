@@ -2,7 +2,7 @@ let assert = require('assert');
 let shuffle = require('../dist/array/shuffle');
 
 describe('array', function() {
-	describe('#shuffle', function() {
+	describe('#shuffle()', function() {
 		let original = [ ];
 		for (let i = 0; i < 100; i++) {
 			original[i] = i;
