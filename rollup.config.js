@@ -2,31 +2,28 @@ import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
+const IIFE = {
+	file: 'dist/mph.utils.js',
+	format: 'iife',
+	name: 'utils',
+};
+
 export default {
 	input: 'src/index.js',
 	output: [
 		{
 			dir: 'dist',
-			// file: 'dist/index.js',
 			format: 'cjs',
 			preserveModules: true,
 			exports: 'auto',
 		},
+		IIFE,
 		{
-			file: 'dist/mph.utils.js',
-			// format: 'umd',
-			format: 'iife',
-			name: 'mph.utils',
-		},
-		{
-			file: 'dist/mph.utils.min.js',
-			format: 'iife',
-			name: 'mph.utils.min',
+			...IIFE,
+			file: IIFE.file.replace(/\.js$/, '.min.js'),
 			compact: true,
-			plugins: [
-				terser(),
-			],
-		}
+			plugins: [ terser() ],
+		},
 	],
 	plugins: [
 		babel({ babelHelpers: 'bundled' }),
