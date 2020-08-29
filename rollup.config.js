@@ -3,7 +3,7 @@ import { terser } from 'rollup-plugin-terser';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 const IIFE = {
-	file: 'dist/mph.utils.js',
+	file: 'dist/utils.js',
 	format: 'iife',
 	name: 'utils',
 };
