@@ -52,11 +52,10 @@ var rand = utils.rand;
 
 ### shuffle
 
-Shuffles an array in place.
+Shuffles an array.
 
 ```js
-var arr = [ 1, 2, 3, 4, 5 ];
-shuffle(arr);
+shuffle([ 1, 2, 3, 4, 5 ]);
 ```
 
 ## date
@@ -66,3 +65,12 @@ shuffle(arr);
 ## string
 
 ## rand
+
+Random helper with multiple options.
+
+```js
+rand(); // random float from 0 (inclusive) to 1 (exclusive)
+rand('string'); // random character from string
+rand([ 1, 2, 3, 4, 5 ]); // rand item from array
+rand(1, 4); // rand int from 1 (inclusive) to 4 (inclusive)
+```
