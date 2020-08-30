@@ -7,7 +7,7 @@ for (let i = 0; i < CHARSLEN; ++i) {
 }
 
 let lastId = null;
-let genId = () => {
+let seqId = () => {
 	if (!lastId) {
 		lastId = CHARS[0];
 		return lastId;
@@ -31,4 +31,4 @@ let genId = () => {
 	return lastId;
 };
 
-export default genId;
+export default seqId;
