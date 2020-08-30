@@ -10,7 +10,7 @@ for (var i = 0; i < CHARSLEN; ++i) {
 
 var lastId = null;
 
-var genId = function genId() {
+var seqId = function seqId() {
   if (!lastId) {
     lastId = CHARS[0];
     return lastId;
@@ -36,4 +36,4 @@ var genId = function genId() {
   return lastId;
 };
 
-module.exports = genId;
+module.exports = seqId;
