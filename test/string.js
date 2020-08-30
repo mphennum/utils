@@ -6,10 +6,19 @@ describe('string', function() {
 	describe('#deaccent()', function() {
 
 		it('should remove unicode chars', function() {
-			let str = deaccent('Æ');
+			let orig = 'Æ';
+			let str = deaccent(orig);
 
-			// console.log({ str });
+			// console.log({ orig, str });
 			assert.equal(str, 'AE');
+		});
+
+		it('should leave a non unicode string unchanged', function() {
+			let orig = 'Where the leave fall not. Land of my people, forever.';
+			let str = deaccent(orig);
+
+			// console.log({ orig, str });
+			assert.equal(str, orig);
 		});
 
 	});
