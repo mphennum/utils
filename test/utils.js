@@ -1,7 +1,27 @@
 let assert = require('assert').strict;
 let rand = require('../dist/rand');
+let randId = require('../dist/rand-id');
 
 describe('utils', function() {
+
+	describe('#randId()', function() {
+
+		it('no params - should return a string with length between 4 and 7', function() {
+			let id = randId();
+
+			// console.log({ id });
+			assert.ok(id.length >= 4 && id.length <= 7);
+		});
+
+		it('length param - should have the correct length', function() {
+			let len = 14;
+			let id = randId(len);
+
+			// console.log({ id });
+			assert.equal(id.length, len);
+		});
+
+	});
 
 	describe('#rand()', function() {
 
@@ -30,7 +50,7 @@ describe('utils', function() {
 
 		it('2 num params - should pick a random int from low to high', function() {
 			let low = 1;
-			let high = 10;
+			let high = 4;
 			let r = rand(low, high);
 
 			// console.log({ r });
