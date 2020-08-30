@@ -1,5 +1,9 @@
 'use strict';
 
-var string = {};
+var deaccent = require('./deaccent.js');
+
+var string = {
+  deaccent: deaccent
+};
 
 module.exports = string;
