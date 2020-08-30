@@ -17,9 +17,9 @@ let seqId = (min) => {
 				lastId += LASTCHAR;
 			}
 		} else if (typeof min === 'string') {
-			for (let c of min) {
-				if (!CHARS.includes(c)) {
-					throw new Error(`Invalid char "${ c }"`);
+			for (let i = 0; i < min.length; i++) {
+				if (!CHARS.includes(min[i])) {
+					throw new Error(`Invalid char "${ min[i] }"`);
 				}
 			}
 
