@@ -69,8 +69,17 @@ console.log(arr);
 Deaccents a string by replacing unicode characters.
 
 ```js
-var str = deaccent('Æ'); // returns "AE"
+var str = deaccent('Fëanor'); // returns "Feanor"
 console.log({ str: str });
+```
+
+### toSlug
+
+Converts a string into a slug to be used in a url path.
+
+```js
+var slug = toSlug('Word with spaces'); // returns "word-with-spaces"
+console.log({ slug: slug });
 ```
 
 ## other
