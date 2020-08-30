@@ -6,11 +6,11 @@ describe('string', function() {
 	describe('#deaccent()', function() {
 
 		it('should remove unicode chars', function() {
-			let orig = 'Æ';
+			let orig = 'Fëanor';
 			let str = deaccent(orig);
 
 			// console.log({ orig, str });
-			assert.equal(str, 'AE');
+			assert.equal(str, 'Feanor');
 		});
 
 		it('should leave a non unicode string unchanged', function() {
