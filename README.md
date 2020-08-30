@@ -80,3 +80,13 @@ rand('string'); // random character from string
 rand([ 1, 2, 3, 4, 5 ]); // rand item from array
 rand(1, 4); // rand int from 1 (inclusive) to 4 (inclusive)
 ```
+
+### seqId
+
+Generates a sequential id.
+
+```js
+seqId(); // generates a sequential id starting with "a"
+seqId(3); // generates a sequential id starting with a minimum length of 3 -- "aaa"
+seqId('aaa'); // generates a sequential id starting after "aaa" -- "aab"
+```
