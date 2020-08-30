@@ -2,8 +2,6 @@
 
 Javascript utilities for strings, numbers, dates, etc.
 
-[Examples](./examples.html)
-
 ## table of contents
 
 - [installing](#installing)
@@ -11,7 +9,7 @@ Javascript utilities for strings, numbers, dates, etc.
 - [date](#date)
 - [number](#number)
 - [string](#string)
-- [rand](#rand)
+- [other](#other)
 
 * * *
 
@@ -26,9 +24,11 @@ $ npm install @mph/utils
 ```js
 import utils from '@mph/utils'; // import entire utils library
 // or
-import { array, date, number, string, rand } from '@mph/utils'; // import sub libraries
+import { array } from '@mph/utils'; // import sub libraries
 // or
-import { shuffle } from '@mph/utils/dist/array'; // import individual functions
+import { shuffle } from '@mph/utils/dist/array'; // import function from sub library
+// or
+import shuffle from '@mph/utils/dist/array/shuffle'; // import function directly
 ```
 
 ### html
@@ -38,12 +38,7 @@ import { shuffle } from '@mph/utils/dist/array'; // import individual functions
 ```
 
 ```js
-var utils = window.utils;
-var array = utils.array;
-var date = utils.date;
-var number = utils.number;
-var string = utils.string;
-var rand = utils.rand;
+var shuffle = window.utils.array.shuffle;
 ```
 
 * * *
@@ -64,7 +59,18 @@ shuffle([ 1, 2, 3, 4, 5 ]);
 
 ## string
 
-## rand
+## other
+
+### randId
+
+Generates a random id.
+
+```js
+randId(); // generates a random id, usually 5 to 6 chars
+randId(14); // generates a random id, 14 chars
+```
+
+### rand
 
 Random helper with multiple options.
 
