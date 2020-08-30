@@ -29,8 +29,13 @@ var utils = (function (exports) {
       return str;
     };
 
+    var toSlug = function toSlug(str) {
+      return deaccent(str).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^\-|\-$/g, '');
+    };
+
     var string = {
-      deaccent: deaccent
+      deaccent: deaccent,
+      toSlug: toSlug
     };
 
     var rand = function rand() {
