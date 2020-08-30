@@ -2,6 +2,8 @@
 
 var CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 var CHARSLEN = CHARS.length;
+var FIRSTCHAR = CHARS[0];
+var LASTCHAR = CHARS[CHARSLEN - 1];
 var charPos = {};
 
 for (var i = 0; i < CHARSLEN; ++i) {
@@ -10,9 +12,29 @@ for (var i = 0; i < CHARSLEN; ++i) {
 
 var lastId = null;
 
-var seqId = function seqId() {
+var seqId = function seqId(min) {
+  if (min) {
+    var _lastId;
+
+    if (typeof min === 'number' && (!lastId || ((_lastId = lastId) === null || _lastId === void 0 ? void 0 : _lastId.length) < min)) {
+      lastId = '';
+
+      for (var _i = 0; _i < min - 1; _i++) {
+        lastId += LASTCHAR;
+      }
+    } else if (typeof min === 'string') {
+      for (var _i2 = 0; _i2 < min.length; _i2++) {
+        if (!CHARS.includes(min[_i2])) {
+          throw new Error("Invalid char \"" + min[_i2] + "\"");
+        }
+      }
+
+      lastId = min;
+    }
+  }
+
   if (!lastId) {
-    lastId = CHARS[0];
+    lastId = FIRSTCHAR;
     return lastId;
   }
 
@@ -26,11 +48,11 @@ var seqId = function seqId() {
       break;
     }
 
-    lastId = lastId.substr(0, i) + CHARS[0] + lastId.substr(i + 1);
+    lastId = lastId.substr(0, i) + FIRSTCHAR + lastId.substr(i + 1);
   }
 
   if (i === -1) {
-    lastId += CHARS[0];
+    lastId += FIRSTCHAR;
   }
 
   return lastId;
