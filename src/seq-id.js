@@ -1,5 +1,7 @@
 const CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 const CHARSLEN = CHARS.length;
+const FIRSTCHAR = CHARS[0];
+const LASTCHAR = CHARS[CHARSLEN - 1];
 
 let charPos = { };
 for (let i = 0; i < CHARSLEN; ++i) {
@@ -7,9 +9,26 @@ for (let i = 0; i < CHARSLEN; ++i) {
 }
 
 let lastId = null;
-let seqId = () => {
+let seqId = (min) => {
+	if (min) {
+		if (typeof min === 'number' && (!lastId || lastId?.length < min)) {
+			lastId = '';
+			for (let i = 0; i < min - 1; i++) {
+				lastId += LASTCHAR;
+			}
+		} else if (typeof min === 'string') {
+			for (let c of min) {
+				if (!CHARS.includes(c)) {
+					throw new Error(`Invalid char "${ c }"`);
+				}
+			}
+
+			lastId = min;
+		}
+	}
+
 	if (!lastId) {
-		lastId = CHARS[0];
+		lastId = FIRSTCHAR;
 		return lastId;
 	}
 
@@ -21,11 +40,11 @@ let seqId = () => {
 			break;
 		}
 
-		lastId = lastId.substr(0, i) + CHARS[0] + lastId.substr(i + 1);
+		lastId = lastId.substr(0, i) + FIRSTCHAR + lastId.substr(i + 1);
 	}
 
 	if (i === -1) {
-		lastId += CHARS[0];
+		lastId += FIRSTCHAR;
 	}
 
 	return lastId;
