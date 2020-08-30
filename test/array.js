@@ -1,17 +1,20 @@
-let assert = require('assert');
+let assert = require('assert').strict;
 let shuffle = require('../dist/array/shuffle');
 
 describe('array', function() {
+
 	describe('#shuffle()', function() {
+
 		let original = [ ];
 		for (let i = 0; i < 100; i++) {
 			original[i] = i;
 		}
 
 		let shuffled = shuffle(original.slice());
+		// console.log({ original, shuffled });
 
 		it('should return an array', function() {
-			assert.equal(shuffled instanceof Array, true);
+			assert.ok(shuffled instanceof Array);
 		});
 
 		it('should maintain the same length', function() {
@@ -31,15 +34,17 @@ describe('array', function() {
 		});
 
 		it('should usually have a different order', function() {
-			let sameOrder = true;
+			let order = true;
 			for (let i = 0; i <  original.length; i++) {
 				if (shuffled[i] !== original[i]) {
-					sameOrder = false;
+					order = false;
 					break;
 				}
 			}
 
-			assert.ok(!sameOrder);
+			assert.ok(!order);
 		});
+
 	});
+
 });
