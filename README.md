@@ -18,17 +18,17 @@ Javascript utilities for strings, numbers, dates, etc.
 ### npm
 
 ```bash
-$ npm install @mph/utils
+$ npm install @mphennum/utils
 ```
 
 ```js
-import utils from '@mph/utils'; // import entire utils library
+import utils from '@mphennum/utils'; // import entire utils library
 // or
-import { array } from '@mph/utils'; // import sub libraries
+import { array } from '@mphennum/utils'; // import sub libraries
 // or
-import { shuffle } from '@mph/utils/dist/array'; // import function from sub library
+import { shuffle } from '@mphennum/utils/dist/array'; // import function from sub library
 // or
-import shuffle from '@mph/utils/dist/array/shuffle'; // import function directly
+import shuffle from '@mphennum/utils/dist/array/shuffle'; // import function directly
 
 console.log(shuffle([ 1, 2, 3, 4, 5 ]));
 ```
