@@ -1,5 +1,6 @@
 let assert = require('assert').strict;
 let toCompact = require('../dist/number/to-compact');
+let toOrdinal = require('../dist/number/to-ordinal');
 
 describe('number', function() {
 
@@ -69,6 +70,42 @@ describe('number', function() {
 				bCompact.endsWith('b') &&
 				tCompact.endsWith('t')
 			);
+		});
+
+	});
+
+	describe('#toOrdinal()', function() {
+
+		it('should end in "th" for numbers between 11 and 13', function() {
+			let num = 11;
+			let ord = toOrdinal(num);
+
+			// console.log({ num, ord });
+			assert.match(ord, /th$/);
+		});
+
+		it('should end in "st" for numbers ending with 1', function() {
+			let num = 1;
+			let ord = toOrdinal(num);
+
+			// console.log({ num, ord });
+			assert.match(ord, /st$/);
+		});
+
+		it('should end in "nd" for numbers ending with 2', function() {
+			let num = 22;
+			let ord = toOrdinal(num);
+
+			// console.log({ num, ord });
+			assert.match(ord, /nd$/);
+		});
+
+		it('should end in "rd" for numbers ending with 3', function() {
+			let num = 33;
+			let ord = toOrdinal(num);
+
+			// console.log({ num, ord });
+			assert.match(ord, /rd$/);
 		});
 
 	});
