@@ -67,8 +67,17 @@ console.log(arr);
 Returns a compact form of a given number.
 
 ```js
-var compact = toCompact(1500); // returns 1.5k
+var compact = toCompact(1500); // returns "1.5k"
 console.log({ compact: compact });
+```
+
+### toOrdinal
+
+Returns a string with corresponding ordinal indicator.
+
+```js
+var ordinal = toOrdinal(11); // returns "11th"
+console.log({ ordinal: ordinal });
 ```
 
 ## string
