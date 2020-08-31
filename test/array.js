@@ -1,5 +1,5 @@
 let assert = require('assert').strict;
-let shuffle = require('../dist/array/shuffle');
+let { array } = require('../dist');
 
 describe('array', function() {
 
@@ -10,7 +10,7 @@ describe('array', function() {
 			original[i] = i;
 		}
 
-		let shuffled = shuffle(original.slice());
+		let shuffled = array.shuffle(original.slice());
 		// console.log({ original, shuffled });
 
 		it('should return an array', function() {

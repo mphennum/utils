@@ -13,6 +13,7 @@ export default {
 	output: [
 		{
 			dir: 'dist',
+			// file: 'dist/index.js',
 			format: 'cjs',
 			preserveModules: true,
 			exports: 'auto',

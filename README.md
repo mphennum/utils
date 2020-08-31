@@ -24,13 +24,9 @@ $ npm install @mphennum/utils
 ```js
 import utils from '@mphennum/utils'; // import entire utils library
 // or
-import { array } from '@mphennum/utils'; // import sub libraries
-// or
-import { shuffle } from '@mphennum/utils/dist/array'; // import function from sub library
-// or
-import shuffle from '@mphennum/utils/dist/array/shuffle'; // import function directly
+import array from '@mphennum/utils/dist/array'; // import sub library
 
-console.log(shuffle([ 1, 2, 3, 4, 5 ]));
+console.log(array.shuffle([ 1, 2, 3, 4, 5 ]));
 ```
 
 ### html
@@ -40,8 +36,8 @@ console.log(shuffle([ 1, 2, 3, 4, 5 ]));
 ```
 
 ```js
-var shuffle = window.utils.array.shuffle;
-console.log(shuffle([ 1, 2, 3, 4, 5 ]));
+var array = window.utils.array;
+console.log(array.shuffle([ 1, 2, 3, 4, 5 ]));
 ```
 
 * * *
@@ -54,7 +50,7 @@ Shuffles an array.
 
 ```js
 var arr = [ 1, 2, 3, 4, 5 ];
-shuffle(arr); // also returns the shuffled array
+array.shuffle(arr); // also returns the shuffled array
 console.log(arr);
 ```
 
@@ -67,7 +63,7 @@ console.log(arr);
 Returns a compact form of a given number.
 
 ```js
-var compact = toCompact(1500); // returns "1.5k"
+var compact = number.toCompact(1500); // returns "1.5k"
 console.log({ compact: compact });
 ```
 
@@ -76,7 +72,7 @@ console.log({ compact: compact });
 Returns a string with corresponding ordinal indicator.
 
 ```js
-var ordinal = toOrdinal(11); // returns "11th"
+var ordinal = number.toOrdinal(11); // returns "11th"
 console.log({ ordinal: ordinal });
 ```
 
@@ -87,7 +83,7 @@ console.log({ ordinal: ordinal });
 Deaccents a string by replacing unicode characters.
 
 ```js
-var str = deaccent('Fëanor'); // returns "Feanor"
+var str = string.deaccent('Fëanor'); // returns "Feanor"
 console.log({ str: str });
 ```
 
@@ -96,7 +92,7 @@ console.log({ str: str });
 Converts a string into a slug to be used in a url path.
 
 ```js
-var slug = toSlug('Word with spaces'); // returns "word-with-spaces"
+var slug = string.toSlug('Word with spaces'); // returns "word-with-spaces"
 console.log({ slug: slug });
 ```
 
@@ -107,8 +103,8 @@ console.log({ slug: slug });
 Generates a random id.
 
 ```js
-var id = randId(); // generates a random id, usually 5 to 6 chars
-var id2 = randId(14); // generates a random id, 14 chars
+var id = utils.randId(); // generates a random id, usually 5 to 6 chars
+var id2 = utils.randId(14); // generates a random id, 14 chars
 console.log({ id: id, id2: id2 });
 ```
 
@@ -117,10 +113,10 @@ console.log({ id: id, id2: id2 });
 Random helper with multiple options.
 
 ```js
-var r = rand(); // random float from 0 (inclusive) to 1 (exclusive)
-var r2 = rand('string'); // random character from string
-var r3 = rand([ 1, 2, 3, 4, 5 ]); // rand item from array
-var r4 = rand(1, 4); // rand int from 1 (inclusive) to 4 (inclusive)
+var r = utils.rand(); // random float from 0 (inclusive) to 1 (exclusive)
+var r2 = utils.rand('string'); // random character from string
+var r3 = utils.rand([ 1, 2, 3, 4, 5 ]); // rand item from array
+var r4 = utils.rand(1, 4); // rand int from 1 (inclusive) to 4 (inclusive)
 console.log({ r: r, r2: r2, r3: r3, r4: r4 });
 ```
 
@@ -129,8 +125,8 @@ console.log({ r: r, r2: r2, r3: r3, r4: r4 });
 Generates a sequential id.
 
 ```js
-var id = seqId(); // generates a sequential id starting with "a"
-var id2 = seqId(3); // generates a sequential id starting with a minimum length of 3 -- "aaa"
-var id3 = seqId('ZZZ'); // generates a sequential id starting after "ZZZ" -- "ZZ0"
+var id = utils.seqId(); // generates a sequential id starting with "a"
+var id2 = utils.seqId(3); // generates a sequential id starting with a minimum length of 3 -- "aaa"
+var id3 = utils.seqId('ZZZ'); // generates a sequential id starting after "ZZZ" -- "ZZ0"
 console.log({ id: id, id2: id2, id3: id3 });
 ```
