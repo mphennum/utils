@@ -62,6 +62,15 @@ console.log(arr);
 
 ## number
 
+### toCompact
+
+Returns a compact form of a given number.
+
+```js
+var compact = toCompact(1500); // returns 1.5k
+console.log({ compact: compact });
+```
+
 ## string
 
 ### deaccent
