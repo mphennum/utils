@@ -83,8 +83,29 @@ var utils = (function (exports) {
       return ((num < 1 ? -1 : 1) * abs).toFixed(decimals).replace(/\.0+$/, '').replace(/(\.[1-9])0$/, '$1') + post;
     };
 
+    var toOrdinal = function toOrdinal(num) {
+      var ord;
+      var abs = Math.abs(num);
+      var rem = abs % 100;
+
+      if (rem < 11 || rem > 13) {
+        rem = abs % 10;
+
+        if (rem === 1) {
+          ord = 'st';
+        } else if (rem === 2) {
+          ord = 'nd';
+        } else if (rem === 3) {
+          ord = 'rd';
+        }
+      }
+
+      return "" + num + (ord || 'th');
+    };
+
     var number = {
-      toCompact: toCompact
+      toCompact: toCompact,
+      toOrdinal: toOrdinal
     };
 
     var rand = function rand() {
