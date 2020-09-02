@@ -56,6 +56,18 @@ console.log(arr);
 
 ## date
 
+### format
+
+Formats a given date.
+
+```js
+var format = date.format(); // returns "0000-00-00T00:00:00.000+00:00" format for current timestamp
+var format2 = date.format('1988-01-04', 'Y-m-d H:i:s', true); // returns "1988-01-04 00:00:00", true for utc
+var format3 = date.format(0, 'Y-m-d', true); // returns "1970-01-01"
+var format4 = date.format(new Date('2019-04-15'), 'M j, Y', true); // returns "April 15, 2019"
+console.log({ format, format2, format3, format4 });
+```
+
 ## number
 
 ### toCompact
