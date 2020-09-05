@@ -1,7 +1,19 @@
-export { default as array } from './array';
-export { default as date } from './date';
-export { default as string } from './string';
-export { default as number } from './number';
-export { default as rand } from './rand';
-export { default as randId } from './rand-id';
-export { default as seqId } from './seq-id';
+import array from './array';
+import date from './date';
+import number from './number';
+import rand from './rand';
+import randId from './rand-id';
+import seqId from './seq-id';
+import string from './string';
+
+let utils = {
+	array,
+	date,
+	number,
+	rand,
+	randId,
+	seqId,
+	string,
+};
+
+export default utils;
