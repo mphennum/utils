@@ -4,7 +4,7 @@ let toSlug = (str) => {
 	return deaccent(str).
 		toLowerCase().
 		replace(/[^a-z0-9]+/g, '-').
-		replace(/^\-|\-$/g, '')
+		replace(/^-|-$/g, '')
 	;
 };
 
