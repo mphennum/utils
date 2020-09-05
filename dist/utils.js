@@ -121,7 +121,7 @@ var utils = (function (exports) {
             return DAYS[day];
 
           case 'l':
-            return SHOTDAYS[day];
+            return SHORTDAYS[day];
           // time
 
           case 'H':
@@ -225,7 +225,7 @@ var utils = (function (exports) {
     };
 
     var toSlug = function toSlug(str) {
-      return deaccent(str).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^\-|\-$/g, '');
+      return deaccent(str).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
     };
 
     var string = {

@@ -102,7 +102,7 @@ var format = function format(dt, _format, isUTC) {
         return DAYS[day];
 
       case 'l':
-        return SHOTDAYS[day];
+        return SHORTDAYS[day];
       // time
 
       case 'H':
