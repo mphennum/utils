@@ -14,9 +14,7 @@ var lastId = null;
 
 var seqId = function seqId(min) {
   if (min) {
-    var _lastId;
-
-    if (typeof min === 'number' && (!lastId || ((_lastId = lastId) === null || _lastId === void 0 ? void 0 : _lastId.length) < min)) {
+    if (typeof min === 'number' && (!lastId || lastId.length < min)) {
       lastId = '';
 
       for (var _i = 0; _i < min - 1; _i++) {
