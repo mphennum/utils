@@ -104,7 +104,7 @@ let format = (dt, format = 'Y-m-dTH:i:s.vP', isUTC = false) => {
 			case 'd': return (date > 9) ? date : '0' + date;
 			case 'j': return date;
 			case 'D': return DAYS[day];
-			case 'l': return SHOTDAYS[day];
+			case 'l': return SHORTDAYS[day];
 
 			// time
 
