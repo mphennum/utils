@@ -51,7 +51,7 @@ Shuffles an array.
 ```js
 var arr = [ 1, 2, 3, 4, 5 ];
 array.shuffle(arr); // also returns the shuffled array
-console.log(arr);
+console.log({ arr: arr });
 ```
 
 ## date
@@ -65,8 +65,17 @@ var format = date.format(); // returns "0000-00-00T00:00:00.000+00:00" format fo
 var format2 = date.format('1988/01/04', 'Y-m-d H:i:s', true); // returns "1988-01-04 00:00:00", true for utc
 var format3 = date.format(0, 'Y-m-d', true); // returns "1970-01-01"
 var format4 = date.format(new Date('2019/04/15'), 'M j, Y', true); // returns "April 15, 2019"
-console.log({ format, format2, format3, format4 });
+console.log({ format: format, format2: format2, format3: format3, format4: format4 });
 ```
+
+### toTimeAgo
+
+```js
+var dt = new Date(Date.now() - 1800000);
+var timeAgo = date.toTimeAgo(dt); // returns "30m"
+var timeAgo2 = date.toTimeAgo(dt, true); // returns "30 minutes"
+console.log({ timeAgo: timeAgo, timeAgo2: timeAgo2 });
+````
 
 ## number
 
