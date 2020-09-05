@@ -37,4 +37,50 @@ describe('date', function() {
 
 	});
 
+	describe('#toTimeAgo()', function() {
+
+		it('should return < 60s as "now"', function() {
+			let timeAgo = date.toTimeAgo(Date.now() - 30000);
+
+			// console.log({ timeAgo });
+			assert.equal(timeAgo, 'now');
+		});
+
+		it('should return < 1h in minutes', function() {
+			let timeAgo = date.toTimeAgo(Date.now() - 1800000);
+
+			// console.log({ timeAgo });
+			assert.match(timeAgo, /^\d+m$/);
+		});
+
+		it('should return < 1d in hours', function() {
+			let timeAgo = date.toTimeAgo(Date.now() - 43200000);
+
+			// console.log({ timeAgo });
+			assert.match(timeAgo, /^\d+h$/);
+		});
+
+		it('should return < 1y in days', function() {
+			let timeAgo = date.toTimeAgo(Date.now() - 15768000000);
+
+			// console.log({ timeAgo });
+			assert.match(timeAgo, /^\d+d$/);
+		});
+
+		it('should return > 1y in years', function() {
+			let timeAgo = date.toTimeAgo(Date.now() - 61536000000);
+
+			// console.log({ timeAgo });
+			assert.match(timeAgo, /^\d+y$/);
+		});
+
+		it('should work for long mode', function() {
+			let timeAgo = date.toTimeAgo(Date.now() - 61536000000, true);
+
+			// console.log({ timeAgo });
+			assert.match(timeAgo, /^\d+\syears?$/);
+		});
+
+	});
+
 });
