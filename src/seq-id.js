@@ -11,7 +11,7 @@ for (let i = 0; i < CHARSLEN; ++i) {
 let lastId = null;
 let seqId = (min) => {
 	if (min) {
-		if (typeof min === 'number' && (!lastId || lastId?.length < min)) {
+		if (typeof min === 'number' && (!lastId || lastId.length < min)) {
 			lastId = '';
 			for (let i = 0; i < min - 1; i++) {
 				lastId += LASTCHAR;
