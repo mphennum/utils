@@ -4,9 +4,11 @@
 	"description": "javascript utilities for strings, numbers, dates, etc",
 	"main": "dist/index.js",
 	"scripts": {
-		"test": "eslint src && mocha",
-		"build": "rm -rf dist/* && rollup --config",
-		"build:watch": "npm run build -- --watch"
+		"test": "npm run test:lint && npm run test:unit",
+		"test:lint": "eslint src",
+		"test:unit": "mocha --require esm --require @babel/register",
+		"build": "npm run test && rm -rf dist/* && rollup --config",
+		"build:watch": "rollup --config --watch"
 	},
 	"repository": {
 		"type": "git",
@@ -31,9 +33,13 @@
 		"@babel/plugin-proposal-nullish-coalescing-operator": "^7.10.4",
 		"@babel/plugin-proposal-optional-chaining": "^7.11.0",
 		"@babel/preset-env": "^7.11.0",
+		"@babel/register": "^7.11.5",
 		"@rollup/plugin-babel": "^5.2.0",
 		"@rollup/plugin-node-resolve": "^9.0.0",
+		"babel-eslint": "^10.1.0",
+		"chai": "^4.2.0",
 		"eslint": "^7.8.1",
+		"esm": "^3.2.25",
 		"mocha": "^8.1.2",
 		"rollup": "^2.26.5",
 		"rollup-plugin-terser": "^7.0.0"

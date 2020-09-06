@@ -1,5 +1,5 @@
-let assert = require('assert').strict;
-let { number } = require('../dist');
+import { expect } from 'chai';
+import { number } from '../src';
 
 describe('number', function() {
 
@@ -10,7 +10,7 @@ describe('number', function() {
 			let compact = number.toCompact(num);
 
 			// console.log({ num, compact });
-			assert.equal(compact, num.toString());
+			expect(compact).to.equal(num.toString());
 		});
 
 		it('should leave ints unchanged between 1 and 999', function() {
@@ -21,7 +21,8 @@ describe('number', function() {
 			let highCompact = number.toCompact(high);
 
 			// console.log({ low, high, lowCompact, highCompact });
-			assert.ok(low.toString() === lowCompact && high.toString() === highCompact);
+			expect(lowCompact).to.equal(low.toString());
+			expect(highCompact).to.equal(high.toString());
 		});
 
 		it('should maintain negative values', function() {
@@ -29,7 +30,7 @@ describe('number', function() {
 			let compact = number.toCompact(num);
 
 			// console.log({ num, compact });
-			assert.equal(compact, num.toString());
+			expect(compact).to.equal(num.toString());
 		});
 
 		it('should round floats between 0 and 1', function() {
@@ -37,7 +38,7 @@ describe('number', function() {
 			let compact = number.toCompact(num);
 
 			// console.log({ num, compact });
-			assert.equal(compact, Math.round(num).toString());
+			expect(compact).to.equal(Math.round(num).toString());
 		});
 
 		it('should round floats between 1 and 999', function() {
@@ -48,7 +49,8 @@ describe('number', function() {
 			let highCompact = number.toCompact(high);
 
 			// console.log({ low, high, lowCompact, highCompact });
-			assert.ok(Math.round(low).toString() === lowCompact && Math.round(high).toString() === highCompact);
+			expect(lowCompact).to.equal(Math.round(low).toString());
+			expect(highCompact).to.equal(Math.round(high).toString());
 		});
 
 		it('should compact thousands, millions, billions, trillions', function() {
@@ -63,12 +65,10 @@ describe('number', function() {
 			let tCompact = number.toCompact(t);
 
 			// console.log({ k, m, b, t, kCompact, mCompact, bCompact, tCompact });
-			assert.ok(
-				kCompact.endsWith('k') &&
-				mCompact.endsWith('m') &&
-				bCompact.endsWith('b') &&
-				tCompact.endsWith('t')
-			);
+			expect(kCompact).to.match(/k$/);
+			expect(mCompact).to.match(/m$/);
+			expect(bCompact).to.match(/b$/);
+			expect(tCompact).to.match(/t$/);
 		});
 
 	});
@@ -80,7 +80,7 @@ describe('number', function() {
 			let ord = number.toOrdinal(num);
 
 			// console.log({ num, ord });
-			assert.match(ord, /th$/);
+			expect(ord).to.match(/th$/);
 		});
 
 		it('should end in "st" for numbers ending with 1', function() {
@@ -88,7 +88,7 @@ describe('number', function() {
 			let ord = number.toOrdinal(num);
 
 			// console.log({ num, ord });
-			assert.match(ord, /st$/);
+			expect(ord).to.match(/st$/);
 		});
 
 		it('should end in "nd" for numbers ending with 2', function() {
@@ -96,7 +96,7 @@ describe('number', function() {
 			let ord = number.toOrdinal(num);
 
 			// console.log({ num, ord });
-			assert.match(ord, /nd$/);
+			expect(ord).to.match(/nd$/);
 		});
 
 		it('should end in "rd" for numbers ending with 3', function() {
@@ -104,7 +104,7 @@ describe('number', function() {
 			let ord = number.toOrdinal(num);
 
 			// console.log({ num, ord });
-			assert.match(ord, /rd$/);
+			expect(ord).to.match(/rd$/);
 		});
 
 	});

@@ -1,5 +1,5 @@
-let assert = require('assert').strict;
-let { date } = require('../dist');
+import { expect } from 'chai';
+import { date } from '../src';
 
 describe('date', function() {
 
@@ -9,21 +9,21 @@ describe('date', function() {
 			let format = date.format();
 
 			// console.log({ format });
-			assert.match(format, /^\d{4}\-\d{2}\-\d{2}T\d{2}\:\d{2}\:\d{2}\.\d{3}\+\d{2}\:\d{2}$/);
+			expect(format).to.match(/^\d{4}\-\d{2}\-\d{2}T\d{2}\:\d{2}\:\d{2}\.\d{3}\+\d{2}\:\d{2}$/);
 		});
 
 		it('should preserve escaped characters', function() {
 			let format = date.format(Date.now(), '\\PP');
 
 			// console.log({ format });
-			assert.match(format, /^P\+\d{2}\:\d{2}$/);
+			expect(format).to.match(/^P\+\d{2}\:\d{2}$/);
 		});
 
 		it('should allow custom formats', function() {
 			let format = date.format(Date.now(), 'Y-m-d');
 
 			// console.log({ format });
-			assert.match(format, /^\d{4}\-\d{2}\-\d{2}$/);
+			expect(format).to.match(/^\d{4}\-\d{2}\-\d{2}$/);
 		});
 
 		it('should have a different output for utc', function() {
@@ -32,7 +32,7 @@ describe('date', function() {
 			let utcFormat = date.format(0, FORMAT, true);
 
 			// console.log({ format, utcFormat });
-			assert.notEqual(format, utcFormat);
+			expect(format).to.not.equal(utcFormat);
 		});
 
 	});
@@ -43,42 +43,42 @@ describe('date', function() {
 			let timeAgo = date.toTimeAgo(Date.now() - 30000);
 
 			// console.log({ timeAgo });
-			assert.equal(timeAgo, 'now');
+			expect(timeAgo).to.equal('now');
 		});
 
 		it('should return < 1h in minutes', function() {
 			let timeAgo = date.toTimeAgo(Date.now() - 1800000);
 
 			// console.log({ timeAgo });
-			assert.match(timeAgo, /^\d+m$/);
+			expect(timeAgo).to.match(/^\d+m$/);
 		});
 
 		it('should return < 1d in hours', function() {
 			let timeAgo = date.toTimeAgo(Date.now() - 43200000);
 
 			// console.log({ timeAgo });
-			assert.match(timeAgo, /^\d+h$/);
+			expect(timeAgo).to.match(/^\d+h$/);
 		});
 
 		it('should return < 1y in days', function() {
 			let timeAgo = date.toTimeAgo(Date.now() - 15768000000);
 
 			// console.log({ timeAgo });
-			assert.match(timeAgo, /^\d+d$/);
+			expect(timeAgo).to.match(/^\d+d$/);
 		});
 
 		it('should return > 1y in years', function() {
 			let timeAgo = date.toTimeAgo(Date.now() - 61536000000);
 
 			// console.log({ timeAgo });
-			assert.match(timeAgo, /^\d+y$/);
+			expect(timeAgo).to.match(/^\d+y$/);
 		});
 
 		it('should work for long mode', function() {
 			let timeAgo = date.toTimeAgo(Date.now() - 61536000000, true);
 
 			// console.log({ timeAgo });
-			assert.match(timeAgo, /^\d+\syears?$/);
+			expect(timeAgo).to.match(/^\d+\syears?$/);
 		});
 
 	});

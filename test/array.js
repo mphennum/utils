@@ -1,48 +1,42 @@
-let assert = require('assert').strict;
-let { array } = require('../dist');
+import { expect } from 'chai';
+import { array } from '../src';
 
 describe('array', function() {
 
 	describe('#shuffle()', function() {
 
-		let original = [ ];
-		for (let i = 0; i < 100; i++) {
-			original[i] = i;
-		}
-
-		let shuffled = array.shuffle(original.slice());
-		// console.log({ original, shuffled });
-
 		it('should return an array', function() {
-			assert.ok(shuffled instanceof Array);
+			let original = [ 1, 2, 3, 4, 5 ];
+			let shuffled = array.shuffle(original.slice());
+
+			// console.log({ original, shuffled });
+			expect(shuffled).to.be.an('array');
 		});
 
 		it('should maintain the same length', function() {
-			assert.equal(shuffled.length, original.length);
+			let original = [ 1, 2, 3, 4, 5 ];
+			let shuffled = array.shuffle(original.slice());
+
+			// console.log({ original, shuffled });
+			expect(shuffled).to.have.lengthOf(original.length);
 		});
 
 		it('should contain all original items', function() {
-			let missing = false;
-			for (let item of original) {
-				if (!shuffled.includes(item)) {
-					missing = true;
-					break;
-				}
-			}
+			let original = [ 1, 2, 3, 4, 5 ];
+			let shuffled = array.shuffle(original.slice());
 
-			assert.ok(!missing);
+			// console.log({ original, shuffled });
+			expect(shuffled).to.have.members(original);
 		});
 
-		it('should usually have a different order', function() {
-			let order = true;
-			for (let i = 0; i <  original.length; i++) {
-				if (shuffled[i] !== original[i]) {
-					order = false;
-					break;
-				}
-			}
+		it('should eventually have a different order', function() {
+			this.retries(5);
 
-			assert.ok(!order);
+			let original = [ 1, 2, 3, 4, 5 ];
+			let shuffled = array.shuffle(original.slice());
+
+			// console.log({ original, shuffled });
+			expect(shuffled).to.not.deep.equal(original);
 		});
 
 	});

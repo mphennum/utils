@@ -1,5 +1,5 @@
-let assert = require('assert').strict;
-let { string } = require('../dist');
+import { expect } from 'chai';
+import { string } from '../src';
 
 describe('string', function() {
 
@@ -10,7 +10,7 @@ describe('string', function() {
 			let str = string.deaccent(orig);
 
 			// console.log({ orig, str });
-			assert.equal(str, 'Feanor');
+			expect(str).to.equal('Feanor');
 		});
 
 		it('should leave a non unicode string unchanged', function() {
@@ -18,7 +18,7 @@ describe('string', function() {
 			let str = string.deaccent(orig);
 
 			// console.log({ orig, str });
-			assert.equal(str, orig);
+			expect(orig).to.equal(str);
 		});
 
 	});
@@ -30,7 +30,7 @@ describe('string', function() {
 			let slug = string.toSlug(orig);
 
 			// console.log({ orig, slug });
-			assert.equal(slug, 'word-with-spaces');
+			expect(slug).to.equal('word-with-spaces');
 		});
 
 		it('should convert to lowercase', function() {
@@ -38,7 +38,7 @@ describe('string', function() {
 			let slug = string.toSlug(orig);
 
 			// console.log({ orig, slug });
-			assert.equal(slug, '2-be-slugged');
+			expect(slug).to.equal('2-be-slugged');
 		});
 
 		it('should start and end with letters of numbers', function() {
@@ -46,7 +46,7 @@ describe('string', function() {
 			let slug = string.toSlug(orig);
 
 			// console.log({ orig, slug });
-			assert.equal(slug, 'word-with-spaces');
+			expect(slug).to.equal('word-with-spaces');
 		});
 
 		it('should deaccent', function() {
@@ -54,7 +54,7 @@ describe('string', function() {
 			let slug = string.toSlug(orig);
 
 			// console.log({ orig, slug });
-			assert.equal(slug, 'feanor');
+			expect(slug).to.equal('feanor');
 		});
 
 	});
