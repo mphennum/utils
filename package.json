@@ -14,6 +14,9 @@
 		"type": "git",
 		"url": "git+https://github.com/mphennum/utils.git"
 	},
+	"publishConfig": {
+		"access": "public"
+	},
 	"keywords": [
 		"javascript",
 		"utility",
