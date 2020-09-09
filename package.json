@@ -1,6 +1,6 @@
 {
 	"name": "@mphennum/utils",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "javascript utilities for strings, numbers, dates, etc",
 	"main": "dist/index.js",
 	"scripts": {
