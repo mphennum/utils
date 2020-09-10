@@ -4,7 +4,8 @@ Javascript utilities for strings, numbers, dates, etc.
 
 ## table of contents
 
-- [installing](#installing)
+- [install](#install)
+- [usage](#usage)
 - [array](#array)
 - [date](#date)
 - [number](#number)
@@ -13,7 +14,7 @@ Javascript utilities for strings, numbers, dates, etc.
 
 * * *
 
-## installing
+## install
 
 ### npm
 
@@ -21,16 +22,22 @@ Javascript utilities for strings, numbers, dates, etc.
 $ npm install @mphennum/utils
 ```
 
+### browser
+
+```html
+<script src="/path/to/utils.js"></script>
+```
+
+## usage
+
+### node
+
 ```js
 import { array } from '@mphennum/utils';
 console.log(array.shuffle([ 1, 2, 3, 4, 5 ]));
 ```
 
-### html
-
-```html
-<script src="/path/to/utils.js"></script>
-```
+### browser
 
 ```js
 var array = window.utils.array;
