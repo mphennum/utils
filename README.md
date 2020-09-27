@@ -2,7 +2,7 @@
 
 Javascript utilities for strings, numbers, dates, etc.
 
-## table of contents
+## contents
 
 - [install](#install)
 - [usage](#usage)
@@ -25,7 +25,7 @@ $ npm install @mphennum/utils
 ### browser
 
 ```html
-<script src="/path/to/utils.js"></script>
+<script src="/path/to/dist/utils.js"></script>
 ```
 
 ## usage
