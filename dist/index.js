@@ -285,6 +285,47 @@ var number = {
   toOrdinal: toOrdinal
 };
 
+var wait = function wait(t) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, t);
+  });
+};
+
+var waitFor = function waitFor(validator, interval, timeout) {
+  if (interval === void 0) {
+    interval = 99;
+  }
+
+  if (timeout === void 0) {
+    timeout = 9999;
+  }
+
+  return new Promise(function (resolve, reject) {
+    var start = Date.now();
+
+    var validate = function validate() {
+      if (Date.now() - start > timeout) {
+        reject(new Error('waitFor validator timed out.'));
+        return;
+      }
+
+      if (!validator()) {
+        setTimeout(validate, interval);
+        return;
+      }
+
+      resolve();
+    };
+
+    validate();
+  });
+};
+
+var promise = {
+  wait: wait,
+  waitFor: waitFor
+};
+
 var rand = function rand() {
   // 0 args
   if (!arguments.length) {
@@ -407,6 +448,7 @@ var string = {
 exports.array = array;
 exports.date = date;
 exports.number = number;
+exports.promise = promise;
 exports.rand = rand;
 exports.randId = randId;
 exports.seqId = seqId;
