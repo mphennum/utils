@@ -7,8 +7,8 @@
 		"test": "npm run test:lint && npm run test:unit",
 		"test:lint": "eslint src",
 		"test:unit": "mocha --require esm --require @babel/register",
-		"build": "npm run test && rm -rf dist/* && rollup --config",
-		"build:watch": "rollup --config --watch"
+		"dev": "rollup --config --watch",
+		"build": "npm run test && rm -rf dist/* && rollup --config"
 	},
 	"repository": {
 		"type": "git",
