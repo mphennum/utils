@@ -9,6 +9,7 @@ Javascript utilities for strings, numbers, dates, etc.
 - [array](#array)
 - [date](#date)
 - [number](#number)
+- [promise](#promise)
 - [string](#string)
 - [other](#other)
 
@@ -50,7 +51,7 @@ console.log(array.shuffle([ 1, 2, 3, 4, 5 ]));
 
 ### shuffle
 
-Shuffles an array.
+> Shuffles an array.
 
 ```js
 var arr = [ 1, 2, 3, 4, 5 ];
@@ -62,7 +63,7 @@ console.log({ arr: arr });
 
 ### format
 
-Formats a given date.
+> Formats a given date.
 
 ```js
 var format = date.format(); // returns "0000-00-00T00:00:00.000+00:00" format for current timestamp
@@ -85,7 +86,7 @@ console.log({ timeAgo: timeAgo, timeAgo2: timeAgo2 });
 
 ### toCompact
 
-Returns a compact form of a given number.
+> Returns a compact form of a given number.
 
 ```js
 var compact = number.toCompact(1500); // returns "1.5k"
@@ -94,18 +95,46 @@ console.log({ compact: compact });
 
 ### toOrdinal
 
-Returns a string with corresponding ordinal indicator.
+> Returns a string with corresponding ordinal indicator.
 
 ```js
 var ordinal = number.toOrdinal(11); // returns "11th"
 console.log({ ordinal: ordinal });
 ```
 
+## promise
+
+### wait
+
+> A promise that waits X milliseconds.
+
+```js
+promise.wait(5000).then(() => {
+	// runs after 5 seconds
+});
+```
+
+### waitFor
+
+> A promise that waits for a validator function to return a truthy value.
+
+```js
+let interval = 99;
+let timeout = 9999;
+promise.waitFor(() => {
+	return !!document.getElementById('feanor');
+}, interval, timeout).then(() => {
+	// runs after an element with id "feanor" exists
+}).catch((err) => {
+	// runs if timeout has expired
+});
+```
+
 ## string
 
 ### deaccent
 
-Deaccents a string by replacing unicode characters.
+> Deaccents a string by replacing unicode characters.
 
 ```js
 var str = string.deaccent('Fëanor'); // returns "Feanor"
@@ -114,7 +143,7 @@ console.log({ str: str });
 
 ### toSlug
 
-Converts a string into a slug to be used in a url path.
+> Converts a string into a slug to be used in a url path.
 
 ```js
 var slug = string.toSlug('Word with spaces'); // returns "word-with-spaces"
@@ -125,7 +154,7 @@ console.log({ slug: slug });
 
 ### randId
 
-Generates a random id.
+> Generates a random id.
 
 ```js
 var id = randId(); // generates a random id, usually 5 to 6 chars
@@ -135,7 +164,7 @@ console.log({ id: id, id2: id2 });
 
 ### rand
 
-Random helper with multiple options.
+> Random helper with multiple options.
 
 ```js
 var r = rand(); // random float from 0 (inclusive) to 1 (exclusive)
@@ -147,7 +176,7 @@ console.log({ r: r, r2: r2, r3: r3, r4: r4 });
 
 ### seqId
 
-Generates a sequential id.
+> Generates a sequential id.
 
 ```js
 var id = seqId(); // generates a sequential id starting with "a"
